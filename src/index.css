@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body { background: #070b14; color: #f1f5f9; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; overflow: hidden; }
+  ::-webkit-scrollbar { width: 3px; height: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
+}
+
+@layer components {
+  .skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  .diff-easy { @apply text-easy bg-easy/10 border border-easy/25; }
+  .diff-medium { @apply text-medium bg-medium/10 border border-medium/25; }
+  .diff-hard { @apply text-hard bg-hard/10 border border-hard/25; }
+  .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
+  .nav-active { @apply bg-brand-500/10 text-brand-400 border border-brand-500/20; }
+  .card-base { @apply bg-bg-card border border-border-default rounded-xl transition-all duration-200; }
+  .btn-primary { @apply bg-brand-500 hover:bg-brand-600 text-white font-semibold rounded-lg px-4 py-2 text-sm transition-all duration-150 active:scale-95; }
+  .btn-ghost { @apply hover:bg-bg-hover text-text-secondary hover:text-text-primary rounded-lg px-3 py-2 text-sm transition-all duration-150; }
+  .chip { @apply rounded-full px-3 py-1 text-xs font-semibold border cursor-pointer transition-all duration-150 select-none; }
+  .chip-default { @apply chip bg-bg-elevated border-border-default text-text-secondary hover:border-border-strong hover:text-text-primary; }
+  .chip-active { @apply chip bg-brand-500/10 border-brand-500/30 text-brand-400; }
+}
+
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
